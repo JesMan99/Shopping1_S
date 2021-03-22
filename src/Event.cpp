@@ -6,6 +6,7 @@
  */
 
 #include <string>
+#include <iostream>
 #include "Event.h"
 #include "DateTime.h"
 using namespace std;
@@ -31,34 +32,45 @@ void Event::initDefault() {
 }
 
 Event::Event( string line) {
+    char separator = ',';
+    int c=0;
+    string values[9];
+    
+    for (size_t p=0, q=0; p!=line.npos;p=q){
+        values[c]=line.substr(p+(p!=0),(q=line.find(separator,p+1))-p-(p!=0));
+        c++;
+    }
+    
+    DateTime time(values[0]);
+    _dateTime = time;
+    _type=values[1];
+    _prod_id=values[2];
+    _cat_id=values[3];
+    _cat_cod=values[4];
+    _brand=values[5];
+    _price=stod(values[6]);
+    _user_id=values[7];
+    _session=values[8];
 }
 
 DateTime Event::getDateTime()  {
 }
 
-string Event::getType()  { return _type;
-}
+string Event::getType()  { return _type; }
 
-string Event::getProductID()  { return _prod_id;
-}
+string Event::getProductID()  { return _prod_id; }
 
-string Event::getCategoryID()  { return _cat_id;
-}
+string Event::getCategoryID()  { return _cat_id; }
 
-string Event::getCategoryCode()  { return _cat_cod;
-}
+string Event::getCategoryCode()  { return _cat_cod; }
 
-string Event::getBrand()  { return _brand;
-}
+string Event::getBrand()  { return _brand; }
 
-double Event::getPrice()  { return _price;
-}
+double Event::getPrice()  { return _price; }
 
-string Event::getUserID()  { return _user_id;
-}
+string Event::getUserID()  { return _user_id; }
 
-string Event::getSession()  { return _session;
-}
+string Event::getSession()  { return _session; }
 
 void Event::setDateTime( string  time) {
 }
