@@ -7,12 +7,27 @@
 
 #include <string>
 #include "Event.h"
+#include "DateTime.h"
 using namespace std;
 
 Event::Event() {
+    initDefault();
 }
 
 void Event::initDefault() {
+    //const std::string EVENT_DEFAULT = (((std::string)"1971-01-01 00:00:00 UTC,view,")+EMPTY_FIELD+",,,,-1.000000,"+ EMPTY_FIELD+ ","+ EMPTY_FIELD);
+
+    DateTime time;
+    _dateTime = time;
+    
+    _type = "view";
+    _prod_id = "00000000"; // NOTNULL
+    _cat_id = "";
+    _cat_cod = "";
+    _brand = "";
+    _price = -1;
+    _user_id = "00000000"; //NOTNULL
+    _session = "00000000"; //NOTNULL
 }
 
 Event::Event( string line) {
@@ -21,28 +36,28 @@ Event::Event( string line) {
 DateTime Event::getDateTime()  {
 }
 
-string Event::getType()  {
+string Event::getType()  { return _type;
 }
 
-string Event::getProductID()  {
+string Event::getProductID()  { return _prod_id;
 }
 
-string Event::getCategoryID()  {
+string Event::getCategoryID()  { return _cat_id;
 }
 
-string Event::getCategoryCode()  {
+string Event::getCategoryCode()  { return _cat_cod;
 }
 
-string Event::getBrand()  {
+string Event::getBrand()  { return _brand;
 }
 
-double Event::getPrice()  {
+double Event::getPrice()  { return _price;
 }
 
-string Event::getUserID()  {
+string Event::getUserID()  { return _user_id;
 }
 
-string Event::getSession()  {
+string Event::getSession()  { return _session;
 }
 
 void Event::setDateTime( string  time) {

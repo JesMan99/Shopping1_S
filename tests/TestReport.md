@@ -6,9 +6,15 @@ As of Mar 15 2021 17:55:59
 | :----- |:------ | :---: | :---: |
 | 1::1 | _01_Basics.DateTime_Constructors | PASSED | OK |
 | 1::2 | _01_Basics.DateTime_Constructors | PASSED | OK |
-| 2::1 | **_01_Basics.DateTime_getters** | **FAILED** | **"1971" " must have been equal to " "c.year()"** |
-| 3::1| **_01_Basics.DateTime_set** | **SKIPPED** | **The previous test failed** |
-| 4::1| **_01_Basics.Event_ConstructorBase** | **SKIPPED** | **The previous test failed** |
+| 2::1 | _01_Basics.DateTime_getters | PASSED | OK |
+| 2::2 | _01_Basics.DateTime_getters | PASSED | OK |
+| 2::3 | _01_Basics.DateTime_getters | PASSED | OK |
+| 2::4 | _01_Basics.DateTime_getters | PASSED | OK |
+| 2::5 | _01_Basics.DateTime_getters | PASSED | OK |
+| 2::6 | _01_Basics.DateTime_getters | PASSED | OK |
+| 3::1 | _01_Basics.DateTime_set | PASSED | OK |
+| 4::1 | _01_Basics.Event_ConstructorBase | PASSED | OK |
+| 4::2 | **_01_Basics.Event_ConstructorBase** | **FAILED** | **"e2.to_string().c_str()" " must have been equal to " "ANYEVENT"** |
 | 5::1| **_01_Basics.Event_Setters_getters** | **SKIPPED** | **The previous test failed** |
 | 6::1 | **_01_Basics.Integration_ECommerce5** | **FAILED** | **[-Activity found: SUNDAY(0) MONDAY(0) TUESDAY(5) WEDNESDAY(0) THURSDAY(0) FRIDAY(0) SATURDAY(0) Records read: 5 Valid records: 5 Max activity: 5 Day of Max activity: TUESDAY-]** |
 | 7::1 | **_01_Basics.Integration_EMPTY** | **FAILED** | **[-Activity found: SUNDAY(0) MONDAY(0) TUESDAY(0) WEDNESDAY(0) THURSDAY(0) FRIDAY(0) SATURDAY(0) Records read: 0 Valid records: 0 Max activity: 0 Day of Max activity: SUNDAY-]** |

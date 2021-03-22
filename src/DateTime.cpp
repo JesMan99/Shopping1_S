@@ -79,21 +79,27 @@ DateTime::DateTime( string line) {
 }
 
 int DateTime::year()  {
+    return _year;
 }
 
 int DateTime::month()  {
+    return _month;
 }
 
 int DateTime::day()  {
+    return _day;
 }
 
 int DateTime::hour()  {
+    return _hour;
 }
 
 int DateTime::min()  {
+    return _min;
 }
 
 int DateTime::sec()  {
+    return _sec;
 }
 
 bool DateTime::isBefore( DateTime  one)  {
