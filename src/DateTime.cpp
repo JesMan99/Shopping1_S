@@ -21,7 +21,25 @@ using namespace std;
  * @param sec input
  * @return true if is correct, false if not
  */
-bool isCorrect(int year, int month, int day, int hour, int min, int sec);
+bool isCorrect(int year, int month, int day, int hour, int min, int sec){
+    int days_month[] = {31,28,31,30,31,30,31,31,30,31,30,31};
+    month--;
+    
+    if(month > 11 || month < 1)
+        return false;
+    
+    else if (hour > 23 ||hour < 0 || min > 59 || min < 0 || sec < 0 || sec > 59)
+        return false;
+    
+    if ((year % 4 == 0 && year % 100 != 0) || year %  400 == 0)
+        days_month[1]++;
+    
+    if (day < 1 || day > days_month[month])
+        return false;
+    
+    else return true; 
+}
+
 /**
  * @brief split the first field in 6 components of the data time.
  * Please consider using string::substr(int, int)[https://en.cppreference.com/w/cpp/string/basic_string/substr] to cut the line
@@ -54,15 +72,6 @@ void DateTime::initDefault() {
     _hour = 00;
     _min = 00;
     _sec = 00;
-}
-
-bool isCorrect(int year, int month, int day, int hour, int min, int sec) {
-
-
-}
-
-void split( std::string line, int y, int  m, int  d, int  h, int mn, int s) {
-
 }
 
 void DateTime::set(string  line) {
@@ -103,10 +112,16 @@ int DateTime::sec()  {
 }
 
 bool DateTime::isBefore( DateTime  one)  {
+     return to_string() < one.to_string();
 }
 
-int DateTime::weekDay()  {
-;
+int DateTime::weekDay(){
+    int a = (14 - _month) / 12;
+    int y = _year - a;
+    int m = _month + 12 * a -2;
+    int wDay;
+    wDay = (_day + y + y / 4 - y / 100 + y / 400 + (31 * m) / 12) % 7;
+    return wDay;
 }
 
 string DateTime::to_string() const {
@@ -114,4 +129,3 @@ string DateTime::to_string() const {
     sprintf(local, "%04i-%02i-%02i %02i:%02i:%02i UTC", _year, _month, _day, _hour, _min, _sec);
     return local;
 }
-
