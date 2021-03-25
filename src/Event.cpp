@@ -59,7 +59,12 @@ void Event::setDateTime( string  time) {
 }
 
 void Event::setType( std::string type) {
-    _type=type;
+    if (type != VALID_TYPES[0] || type != VALID_TYPES[1] || type != VALID_TYPES[2] || type != VALID_TYPES[3]){
+        _type = VALID_TYPES[0];
+    } else {
+        _type = type;
+    }
+    
 }
 
 void Event::setProductID( std::string  prod_id) {
@@ -125,15 +130,15 @@ bool Event::isEmpty()  {
 }
 
 string Event::to_string() const {
-    string salida;
-    salida += _dateTime.to_string();
-    salida += "," + _type;
-    salida += "," + _prod_id;
-    salida += "," + _cat_id;
-    salida += "," + _cat_cod;
-    salida += "," + _brand;
-    salida += "," + std::to_string(_price);
-    salida += "," + _user_id;
-    salida += "," + _session;
-    return salida;
+    string output;
+    output += _dateTime.to_string();
+    output += "," + _type;
+    output += "," + _prod_id;
+    output += "," + _cat_id;
+    output += "," + _cat_cod;
+    output += "," + _brand;
+    output += "," + std::to_string(_price);
+    output += "," + _user_id;
+    output += "," + _session;
+    return output;
 }
