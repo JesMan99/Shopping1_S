@@ -59,7 +59,7 @@ void Event::setDateTime( string  time) {
 }
 
 void Event::setType( std::string type) {
-    if (type != VALID_TYPES[0] || type != VALID_TYPES[1] || type != VALID_TYPES[2] || type != VALID_TYPES[3]){
+    if (type != VALID_TYPES[0] && type != VALID_TYPES[1] && type != VALID_TYPES[2] && type != VALID_TYPES[3]){
         _type = VALID_TYPES[0];
     } else {
         _type = type;

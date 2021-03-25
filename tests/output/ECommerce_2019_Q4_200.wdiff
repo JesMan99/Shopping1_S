@@ -1,1 +1,1 @@
-[-Activity found: SUNDAY(25) MONDAY(36) TUESDAY(32) WEDNESDAY(32) THURSDAY(25) FRIDAY(32) SATURDAY(18) Records read: 200 Valid records: 200 Max activity: 36 Day of Max activity: MONDAY-]
+Activity found: [-SUNDAY(25) MONDAY(36) TUESDAY(32) WEDNESDAY(32) THURSDAY(25) FRIDAY(32) SATURDAY(18) Records-] {+SUNDAY(0) MONDAY(0) TUESDAY(5) WEDNESDAY(0) THURSDAY(0) FRIDAY(0) SATURDAY(0)Records+} read: [-200 Valid-] {+5Valid+} records: [-200 Max-] {+5Max+} activity: [-36 Day-] {+5Day+} of Max activity: [-MONDAY-] {+TUESDAY+}

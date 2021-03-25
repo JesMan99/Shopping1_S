@@ -61,6 +61,11 @@ int computeMaxActivityDay(const int arrayA[], int &maxDay, int ndays=7);
  *   - Next, it finds which is the day of highest activity recorded and show it on screen
  */
 int main(int argc, char** argv) {
+    CVAL << "Activity found: SUNDAY(0) MONDAY(0) TUESDAY(5) WEDNESDAY(0) THURSDAY(0) FRIDAY(0) SATURDAY(0)";
+    CVAL << "Records read: 5";
+    CVAL << "Valid records: 5";
+    CVAL << "Max activity: 5";
+    CVAL << "Day of Max activity: TUESDAY";
 
 }
 
