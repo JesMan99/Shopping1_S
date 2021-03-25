@@ -61,20 +61,33 @@ int computeMaxActivityDay(const int arrayA[], int &maxDay, int ndays=7);
  *   - Next, it finds which is the day of highest activity recorded and show it on screen
  */
 int main(int argc, char** argv) {
-    CVAL << "Activity found: SUNDAY(0) MONDAY(0) TUESDAY(5) WEDNESDAY(0) THURSDAY(0) FRIDAY(0) SATURDAY(0)";
-    CVAL << "Records read: 5";
-    CVAL << "Valid records: 5";
-    CVAL << "Max activity: 5";
-    CVAL << "Day of Max activity: TUESDAY";
+    string nEvents,readLine;
+    int arrayA[7]{0,0,0,0,0,0,0};
+    getline(cin,nEvents);
+    
+    Event arrayEvents[stoi(nEvents)];
+    
+    for (int i = 0; i<stoi(nEvents);i++){
+        getline(cin,readLine);
+        arrayEvents[i].set(readLine);
+    }
+    
+    computeActivity(arrayEvents,stoi(nEvents),arrayA);
 
 }
 
 void print(const Event array[], int & nEvent) {
-
-}
+  }
 
 void computeActivity(const Event arrayE[], int  nEvents,  int arrayA[]){
-
+    int day = 0;
+    for (int i = 0; i<nEvents;i++){
+        
+        day = arrayE[i].getDateTime().weekDay();
+        arrayA[day]++;
+        cout << day;
+    }
+   
     CVAL << "Activity found:";
     for (int day=0; day<7; day++) {
         CVAL << " " << DAYNAME[day]<<"("<<arrayA[day]<<")";

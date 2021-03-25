@@ -34,7 +34,7 @@ Event::Event( string line) {
     set(line);
 }
 
-DateTime Event::getDateTime()  { return _dateTime.to_string();}
+DateTime Event::getDateTime() const  { return _dateTime.to_string();}
 
 string Event::getType()  { return _type; }
 

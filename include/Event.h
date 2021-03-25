@@ -69,7 +69,7 @@ public:
      * @brief It gives the date of the event
      * @return The date as a valid object
      */
-    DateTime getDateTime() ;
+    DateTime getDateTime() const;
     /**
      * @brief It gives the type of the event
      * @return A string that contains the type

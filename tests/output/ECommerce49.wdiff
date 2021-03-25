@@ -1,1 +1,1 @@
-Activity found: SUNDAY(0) MONDAY(0) [-TUESDAY(49)-] {+TUESDAY(5)+} WEDNESDAY(0) THURSDAY(0) FRIDAY(0) [-SATURDAY(0) Records-] {+SATURDAY(0)Records+} read: [-49 Valid-] {+5Valid+} records: [-49 Max-] {+5Max+} activity: [-49 Day-] {+5Day+} of Max activity: TUESDAY
+Activity found: SUNDAY(0) MONDAY(0) TUESDAY(49) WEDNESDAY(0) THURSDAY(0) FRIDAY(0) SATURDAY(0) [-Records read: 49 Valid records: 49 Max activity: 49 Day of Max activity: TUESDAY-]
