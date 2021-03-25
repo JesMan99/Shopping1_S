@@ -37,7 +37,22 @@ void print(const Event array[], int & nEvent);
  * @param nEvents number of events in arrayE
  * @param arrayA an int output array
  */
-void computeActivity(const Event arrayE[], int  nEvents,  int arrayA[]);
+void computeActivity(const Event arrayE[], int  nEvents,  int arrayA[]){
+    int day = 0;
+    for (int i = 0; i<nEvents;i++){
+        
+        day = arrayE[i].getDateTime().weekDay();
+        arrayA[day]++;
+        cout << day;
+    }
+   
+    CVAL << "Activity found:";
+    for (int day=0; day<7; day++) {
+        CVAL << " " << DAYNAME[day]<<"("<<arrayA[day]<<")";
+    }
+    CVAL << endl;
+}
+
 /**
  * @brief Compute the  max number of activity events, and the day on which is produced
  * @param arrayA the counter of activities, an input array
@@ -61,40 +76,31 @@ int computeMaxActivityDay(const int arrayA[], int &maxDay, int ndays=7);
  *   - Next, it finds which is the day of highest activity recorded and show it on screen
  */
 int main(int argc, char** argv) {
-    string nEvents,readLine;
-    int arrayA[7]{0,0,0,0,0,0,0};
-    getline(cin,nEvents);
+    int valid_Events=0, counter=0;
+    string line;
+    int arrayA[] = {0,0,0,0,0,0,0};
     
-    Event arrayEvents[stoi(nEvents)];
+    cout << "Introduce the number of valid events to read:" <<endl;
+    cin >> valid_Events;
     
-    for (int i = 0; i<stoi(nEvents);i++){
-        getline(cin,readLine);
-        arrayEvents[i].set(readLine);
-    }
+    Event Valid_Events[valid_Events];
+    Event to_try;
     
-    computeActivity(arrayEvents,stoi(nEvents),arrayA);
-
-}
-
-void print(const Event array[], int & nEvent) {
-  }
-
-void computeActivity(const Event arrayE[], int  nEvents,  int arrayA[]){
-    int day = 0;
-    for (int i = 0; i<nEvents;i++){
+    for(int i=0; i>valid_Events;){
+        cout << "Introduce a string:" <<endl;
+        getline(cin, line);
+        to_try.set(line);
+        counter++;
         
-        day = arrayE[i].getDateTime().weekDay();
-        arrayA[day]++;
-        cout << day;
+        if(!to_try.isEmpty()){
+            Valid_Events[i] = to_try;
+            i++;
+        }
     }
+    
+    CVAL << "Events readed: " << counter <<endl;
+    CVAL << "Valid events readed: " << valid_Events <<endl;
+    
+    computeActivity(Valid_Events, valid_Events, arrayA);
    
-    CVAL << "Activity found:";
-    for (int day=0; day<7; day++) {
-        CVAL << " " << DAYNAME[day]<<"("<<arrayA[day]<<")";
-    }
-    CVAL << endl;
-}
-
-int computeMaxActivityDay(const int arrayA[], int &maxDay, int ndays){
-
 }
