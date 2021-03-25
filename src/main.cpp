@@ -21,7 +21,11 @@ using namespace std;
  * @param array of the Events
  * @param nEvent number of events in the array
  */
-void print(const Event array[], int & nEvent);
+void print(const Event array[], int & nEvent){
+    for(int i=0; i<nEvent; i++)
+        cout << array[i].to_string() <<endl;
+
+}
 
 /**
  * @brief Update the counter per week day (value in 0..6) for every event found . 
@@ -60,7 +64,17 @@ void computeActivity(const Event arrayE[], int  nEvents,  int arrayA[]){
  * @param maxDay
  * @return maxActivity the counter of events of 
  */
-int computeMaxActivityDay(const int arrayA[], int &maxDay, int ndays=7);
+int computeMaxActivityDay(const int arrayA[], int &maxDay, int ndays=7){
+    int max_Activity =-1;
+    maxDay=-1;
+    for(int i=0; i<ndays; i++){
+        if(arrayA[i]>max_Activity){
+            max_Activity = arrayA[i];
+            maxDay=i;
+        }
+    }
+    return max_Activity;
+}
 
 
 
@@ -79,6 +93,7 @@ int main(int argc, char** argv) {
     int valid_Events=0, counter=0;
     string line;
     int arrayA[] = {0,0,0,0,0,0,0};
+    int max_activity, maxDay;
     
     cout << "Introduce the number of valid events to read:" <<endl;
     cin >> valid_Events;
@@ -101,6 +116,9 @@ int main(int argc, char** argv) {
     CVAL << "Events readed: " << counter <<endl;
     CVAL << "Valid events readed: " << valid_Events <<endl;
     
+    print(Valid_Events, valid_Events);
+    
     computeActivity(Valid_Events, valid_Events, arrayA);
-   
+    
+    max_activity = computeMaxActivityDay(arrayA, maxDay);
 }
