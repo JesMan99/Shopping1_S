@@ -25,19 +25,20 @@ bool isCorrect(int year, int month, int day, int hour, int min, int sec){
     int days_month[] = {31,28,31,30,31,30,31,31,30,31,30,31};
     month--;
     
-    if(month > 11 || month < 1)
+    if(month > 11 || month < 0)
         return false;
     
-    else if (hour > 23 ||hour < 0 || min > 59 || min < 0 || sec < 0 || sec > 59)
+    if (hour > 23 ||hour < 0 || min > 59 || min < 0 || sec < 0 || sec > 59)
         return false;
     
     if ((year % 4 == 0 && year % 100 != 0) || year %  400 == 0)
         days_month[1]++;
     
     if (day < 1 || day > days_month[month])
-        return false;
+        return false;  
     
-    else return true; 
+    
+   return true; 
 }
 
 /**
@@ -59,28 +60,75 @@ bool isCorrect(int year, int month, int day, int hour, int min, int sec){
  * @param mn output int
  * @param s output int
  */
-void split( std::string line, int y, int  m, int  d, int  h, int mn, int s);
+void split( std::string line, int &y, int  &m, int  &d, int  &h, int &mn, int &s){
+    string number="";
+    int arrayNumber[6] = {0,0,0,0,0,0};
+    int index = 0;
+    bool correct = true;
+    for (int i = 0; i<=line.length();i++){
+        //48 (0) - 57 (9)
+        if (line[i]<= '9' && line[i]>='0'){
+            number = number + line[i];
+        } else {
+            if(number!=""){
+                if ((index == 1 || index == 2) && number.length()<2 ) { correct = false; }
+                arrayNumber[index]=stoi(number);
+                index++;
+            }
+            number="";
+        }   
+    }
+       
+    
+    if ((isCorrect(arrayNumber[0],arrayNumber[1],arrayNumber[2],arrayNumber[3],arrayNumber[4],arrayNumber[5]) && correct)){
+        y = arrayNumber[0];
+        m = arrayNumber[1];
+        d = arrayNumber[2];
+        h = arrayNumber[3];
+        mn = arrayNumber[4];
+        s = arrayNumber[5];
+    } else {
+        y = 1971;
+        m = 1;
+        d = 1;
+        h = 00;
+        mn = 00;
+        s = 00;
+    };
+};
 
 DateTime::DateTime() {
     initDefault();
 }
 
 void DateTime::initDefault() {
-    _year = 1971;
+    /*_year = 1971;
     _month = 1;
     _day = 1;
     _hour = 00;
     _min = 00;
-    _sec = 00;
+    _sec = 00;*/
+    set("1971-01-01 00:00:00 UTC");
 }
 
 void DateTime::set(string  line) {
-    _year = stoi(line.substr(0,4));
+    
+    int y=0,m=0,d=0,h=0,mn=0,s=0;
+    split(line,y,m,d,h,mn,s);
+   
+    _year = y;
+    _month = m;
+    _day = d;
+    _hour = h;
+    _min = mn;
+    _sec = s;
+    
+    /*_year = stoi(line.substr(0,4));
     _month = stoi(line.substr(5,2));
     _day = stoi(line.substr(8,2));
     _hour = stoi(line.substr(11,2));
     _min = stoi(line.substr(14,2));
-    _sec = stoi(line.substr(17,2));
+    _sec = stoi(line.substr(17,2));*/
 }
 
 DateTime::DateTime( string line) {

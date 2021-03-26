@@ -26,11 +26,15 @@
         <runcommandpicklist>
           <runcommandpicklistitem>"${OUTPUT_PATH} &lt; ./tests/validation/*.keyboard"</runcommandpicklistitem>
           <runcommandpicklistitem>"${OUTPUT_PATH} &lt; ./tests/validation/ECommerce5.keyboard"</runcommandpicklistitem>
-          <runcommandpicklistitem>"${OUTPUT_PATH}"</runcommandpicklistitem>
           <runcommandpicklistitem>"${OUTPUT_PATH} &lt; /tests/validation/*.keyboard"</runcommandpicklistitem>
           <runcommandpicklistitem>"${OUTPUT_PATH}  &lt;  ./tests/validation/ECommerce5.keyboard"</runcommandpicklistitem>
+          <runcommandpicklistitem>"${OUTPUT_PATH}"</runcommandpicklistitem>
+          <runcommandpicklistitem>"${OUTPUT_PATH}  &lt; tests/validation/ECommerce5.keyboard"</runcommandpicklistitem>
+          <runcommandpicklistitem>"${OUTPUT_PATH}  &lt;  /tests/validation/ECommerce5.keyboard"</runcommandpicklistitem>
+          <runcommandpicklistitem>"${OUTPUT_PATH}  &lt; /tests/validation/ECommerce5.keyboard"</runcommandpicklistitem>
+          <runcommandpicklistitem>"${OUTPUT_PATH}  &lt; ../tests/validation/ECommerce5.keyboard"</runcommandpicklistitem>
         </runcommandpicklist>
-        <runcommand>"${OUTPUT_PATH}  &lt;  ./tests/validation/ECommerce5.keyboard"</runcommand>
+        <runcommand>"${OUTPUT_PATH}  &lt; ../tests/validation/ECommerce5.keyboard"</runcommand>
         <rundir></rundir>
         <buildfirst>true</buildfirst>
         <terminal-type>0</terminal-type>

@@ -90,19 +90,21 @@ int computeMaxActivityDay(const int arrayA[], int &maxDay, int ndays=7){
  *   - Next, it finds which is the day of highest activity recorded and show it on screen
  */
 int main(int argc, char** argv) {
-    int valid_Events=0, counter=0;
-    string line;
+    int counter=0;
+    string line,readNumberEvents;
     int arrayA[] = {0,0,0,0,0,0,0};
     int max_activity, maxDay;
     
-    cout << "Introduce the number of valid events to read:" <<endl;
-    cin >> valid_Events;
+    cout << "Enter the number of valid events to read:" <<endl;
+    getline(cin,readNumberEvents);
+   
+    int nEvents = stoi(readNumberEvents);
     
-    Event Valid_Events[valid_Events];
+    Event Valid_Events[nEvents];
     Event to_try;
     
-    for(int i=0; i>valid_Events;){
-        cout << "Introduce a string:" <<endl;
+    for(int i=0; i<nEvents;i++){
+        cout << "Enter the string Line:" <<endl;
         getline(cin, line);
         to_try.set(line);
         counter++;
@@ -114,11 +116,11 @@ int main(int argc, char** argv) {
     }
     
     CVAL << "Events readed: " << counter <<endl;
-    CVAL << "Valid events readed: " << valid_Events <<endl;
+    CVAL << "Valid events readed: " << nEvents <<endl;
     
-    print(Valid_Events, valid_Events);
+    print(Valid_Events, nEvents);
     
-    computeActivity(Valid_Events, valid_Events, arrayA);
+    computeActivity(Valid_Events, nEvents, arrayA);
     
     max_activity = computeMaxActivityDay(arrayA, maxDay);
 }

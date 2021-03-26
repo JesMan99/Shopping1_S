@@ -19,7 +19,7 @@ Event::Event() {
 void Event::initDefault() {
     //const std::string EVENT_DEFAULT = (((std::string)"1971-01-01 00:00:00 UTC,view,")+EMPTY_FIELD+",,,,-1.000000,"+ EMPTY_FIELD+ ","+ EMPTY_FIELD);
     
-    DateTime objectTime();
+    DateTime _dateTime();
     _type = "view";
     _prod_id = "00000000"; // NOTNULL
     _cat_id = "";
@@ -89,6 +89,7 @@ void Event::setBrand( std::string  brand) {
 void Event::setPrice(double price) {
     if(price >= 0)
         _price=price;
+    else _price=-1;
 }
 
 void Event::setUserID( std::string  user_id) {
@@ -127,6 +128,16 @@ void Event::set( std::string line) {
 }
 
 bool Event::isEmpty()  {
+    if (_dateTime.to_string()=="1971-01-01 00:00:00 UTC") return true;
+    if (_type == "") return true;
+    if (_prod_id =="00000000") return true;
+    if (_cat_id == "") return true;
+    if (_cat_cod == "") return true;
+    if (_brand == "") return true;
+    if (_price == -1) return true;
+    if (_user_id == "00000000") return true;
+    if (_session == "00000000" ) return true;
+    return false;
 }
 
 string Event::to_string() const {
